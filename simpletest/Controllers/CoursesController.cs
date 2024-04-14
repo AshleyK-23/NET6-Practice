@@ -16,13 +16,17 @@ public class CoursesController : ControllerBase{
     [HttpGet]
     public IActionResult GetAll()
     {
-        return Ok(_service.GetAll());
+        IEnumerable<Course> courses = _service.GetAll();
+        return Ok(courses);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
         var course = _service.GetById(id);
+        if (course == null){
+            return NotFound();
+        }
 
         return Ok(course);
     }

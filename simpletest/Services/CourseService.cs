@@ -9,8 +9,8 @@ public class CourseService : ICourseService
 {
     private List<Course> _courses = new List<Course>
     {
-        new Course {Id = 1, Name = "Math", Price = (decimal)12.55},
-        new Course {Id = 2, Name = "PE", Price = 22}
+        new Course {Id = 1, Name = "Math", Price = 12.55M},
+        new Course {Id = 2, Name = "PE", Price = 22M}
     };
 
     public CourseService(){
@@ -19,12 +19,13 @@ public class CourseService : ICourseService
 
     public IEnumerable<Course> GetAll()
     {
-        throw new NotImplementedException();
+        return _courses;
     }
 
     public Course GetById(int id)
     {
-        throw new NotImplementedException();
+        var course = _courses.Find(x => x.Id == id);
+        return course;
     }
 
     public void Add(Course course)
