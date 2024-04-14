@@ -1,5 +1,6 @@
-namespace simpletest.Data;
 using simpletest.Models;
+
+namespace simpletest.Data;
 
 public class DataContext{
     public DataContext () {
