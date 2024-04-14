@@ -45,4 +45,6 @@ public class CoursesControllerUpdateTests
         Assert.Equal(_testCourse.Id, (result as Course).Id);
         Assert.Equal(_testCourse.Name, (result as Course).Name);
     }
+
+    // Update_WithExistingCourseWithoutPrice_ReturnsCorrectCourseWithPrice
 }

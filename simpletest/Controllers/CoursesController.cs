@@ -31,6 +31,16 @@ public class CoursesController : ControllerBase{
         return Ok(course);
     }
 
+    [HttpPut]
+    public IActionResult Add([FromBody] Course course)
+    {
+        var result = _service.GetById(course.Id);
+        if (result != null) {
+            return BadRequest();
+        }
+        return CreatedAtAction("GetById", course.Id, course);
+    }
+
     [HttpPut("{id}")]
     public IActionResult Update([FromBody] Course course)
     {

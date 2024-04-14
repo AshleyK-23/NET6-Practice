@@ -14,7 +14,7 @@ public class CourseService : ICourseService
     };
 
     public CourseService(){
-
+        //Set Repository
     }
 
     public IEnumerable<Course> GetAll()
@@ -28,9 +28,10 @@ public class CourseService : ICourseService
         return course;
     }
 
-    public void Add(Course course)
+    public Course Add(Course course)
     {
-        throw new NotImplementedException();
+        _courses.Add(course);
+        return course;
     }
 
     public void Remove(Course course)
