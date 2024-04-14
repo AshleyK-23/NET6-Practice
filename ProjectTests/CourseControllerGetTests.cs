@@ -6,12 +6,12 @@ using simpletest.Services;
 
 namespace ProjectTests;
 
-public class CoursesControllerTests
+public class CoursesControllerGetTests
 {
     private ICourseService _service;
     private CoursesController _controller;
 
-    public CoursesControllerTests(){
+    public CoursesControllerGetTests(){
         _service = new CourseService();
         _controller = new CoursesController(_service);
     }
@@ -31,5 +31,32 @@ public class CoursesControllerTests
         var result = Assert.IsType<List<Course>>(resp.Value);
 
         Assert.Equal(2, result.Count);
+    }
+
+    [Fact]
+    public void GetById_WithExistingId_ReturnsOk()
+    {
+        var result = _controller.GetById(1);
+
+        Assert.IsType<OkObjectResult>(result);
+    }
+
+    [Fact]
+    public void GetById_WithNonExistingId_ReturnsNotFound()
+    {
+        var result = _controller.GetById(0);
+
+        Assert.IsType<NotFoundResult>(result);
+    }
+
+    [Fact]
+    public void GetById_WithExistingId_ReturnsCorrectCourse()
+    {
+        var result = _controller.GetById(2) as OkObjectResult;
+
+
+        Assert.IsType<Course>(result.Value);
+        Assert.Equal(2, (result.Value as Course).Id);
+        Assert.Equal("PE", (result.Value as Course).Name);
     }
 }
