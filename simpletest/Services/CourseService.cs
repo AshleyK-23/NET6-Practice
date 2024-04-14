@@ -38,8 +38,11 @@ public class CourseService : ICourseService
         throw new NotImplementedException();
     }
 
-    public void Update(Course course)
+    public Course Update(Course course)
     {
-        throw new NotImplementedException();
+        int result = _courses.FindIndex(x => x.Id == course.Id);
+        _courses[result] = course;
+
+        return _courses[result];
     }
 }

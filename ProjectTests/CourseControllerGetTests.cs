@@ -54,7 +54,6 @@ public class CoursesControllerGetTests
     {
         var result = _controller.GetById(2) as OkObjectResult;
 
-
         Assert.IsType<Course>(result.Value);
         Assert.Equal(2, (result.Value as Course).Id);
         Assert.Equal("PE", (result.Value as Course).Name);
