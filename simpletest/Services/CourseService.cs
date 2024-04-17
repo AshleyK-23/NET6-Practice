@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-using simpletest.Controllers;
 using simpletest.Interfaces;
 using simpletest.Models;
 
@@ -7,7 +5,7 @@ namespace simpletest.Services;
 
 public class CourseService : ICourseService
 {
-    private List<Course> _courses = new List<Course>
+    public List<Course> _courses = new List<Course>
     {
         new Course {Id = 1, Name = "Math", Price = 12.55M},
         new Course {Id = 2, Name = "PE", Price = 22M}

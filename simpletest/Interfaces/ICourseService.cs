@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using simpletest.Models;
 
 namespace simpletest.Interfaces;
